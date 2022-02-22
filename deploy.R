@@ -29,7 +29,7 @@ appDir <- ifelse(
 appName <- required("INPUT_APPNAME")
 accountName <- required("INPUT_ACCOUNTNAME")
 accountToken <- required("INPUT_ACCOUNTTOKEN")
-accountSecret <- required("IUNPUT_ACCOUNTSECRET")
+accountSecret <- required("INPUT_ACCOUNTSECRET")
 
 # optional inputs
 appFiles <- optional("INPUT_APPFILES")
