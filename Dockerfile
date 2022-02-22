@@ -6,6 +6,6 @@ RUN apt-get update && apt-get install -y \
 RUN install2.r rsconnect
 
 WORKDIR /usr/app
-COPY deploy.R .
+COPY deploy.R /deploy.R
 
-CMD ["Rscript", "deploy.R"]
+CMD ["Rscript", "/deploy.R"]
