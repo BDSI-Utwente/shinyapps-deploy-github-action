@@ -1,4 +1,7 @@
-library(rsconnect, lib.loc = "/usr/local/lib/R/site-library")
+.libPaths("/usr/local/lib/R/site-library")
+cat("loading packages from:\n", paste(" - ", .libPaths(), collapse = "\n"))
+
+library(rsconnect)
 
 defined <- function(name) {
   !is.null(Sys.getenv(name)) && Sys.getenv(name) != ""
