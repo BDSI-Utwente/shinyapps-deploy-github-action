@@ -1,4 +1,4 @@
-library(rsconnect)
+library(rsconnect, lib.loc = "/usr/local/lib/R/site-library")
 
 defined <- function(name) {
   !is.null(Sys.getenv(name)) && Sys.getenv(name) != ""
