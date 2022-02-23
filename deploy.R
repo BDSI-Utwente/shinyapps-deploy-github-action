@@ -55,16 +55,14 @@ if (!is.null(appFiles)) {
 # set up account
 cat("checking account info...")
 rsconnect::setAccountInfo(accountName, accountToken, accountSecret)
+cat(" [OK]\n")
 
 # deploy application
-cat("deploying application...")
 rsconnect::deployApp(
   appDir = appDir,
   appFiles = appFiles,
   appFileManifest = appFileManifest,
   appName = appName,
   appTitle = appTitle,
-  account = accountName,
-  # log the url of the deployed application for github to pick up as an output
-  launch.browser = function(url) cat("::output name=url::", url)
+  account = accountName
 )
