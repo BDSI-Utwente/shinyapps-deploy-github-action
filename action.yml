@@ -1,6 +1,5 @@
 name: "Deploy to shinyapps.io"
 description: "Deploy R shiny apps to shinyapps.io."
-icon: cast
 inputs: 
   appDir:
     description: path to app, relative to repository root. Defaults to the repository root.
