@@ -1,5 +1,8 @@
 name: "Deploy to shinyapps.io"
 description: "Deploy R shiny app to shinyapps.io. For further details on the available options, see the documentation for the rsconnect package."
+branding:
+  icon: cast
+  color: blue
 inputs: 
   appDir:
     description: path to app, relative to repository root. Defaults to the repository root.
