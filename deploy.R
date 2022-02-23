@@ -1,19 +1,23 @@
 .libPaths("/usr/local/lib/R/site-library")
-cat("loading packages from:\n", paste(" - ", .libPaths(), collapse = "\n"))
+cat("loading packages from:", paste("\n - ", .libPaths(), collapse = ""), "\n\n")
 
-library(rsconnect)
+# use renv to detect and install required packages.
+if (file.exists("renv.lock")) {
+  renv::restore(prompt = FALSE)
+} else {
+  renv::hydrate()
+}
 
+# set up some helper functions for fetching environment variables
 defined <- function(name) {
   !is.null(Sys.getenv(name)) && Sys.getenv(name) != ""
 }
-
 required <- function(name) {
   if (!defined(name)) {
-    stop("input or environment variable '", name, "' not set")
+    stop("!!! input or environment variable '", name, "' not set")
   }
   Sys.getenv(name)
 }
-
 optional <- function(name) {
   if (!defined(name)) {
     return(NULL)
@@ -22,6 +26,9 @@ optional <- function(name) {
 }
 
 # resolve app dir
+# Note that we are likely already executing from the app dir, as
+# github sets the working directory to the workspace path on starting
+# the docker image.
 appDir <- ifelse(
   defined("INPUT_APPDIR"),
   required("INPUT_APPDIR"),
@@ -57,5 +64,7 @@ rsconnect::deployApp(
   appFileManifest = appFileManifest,
   appName = appName,
   appTitle = appTitle,
-  account = accountName
+  account = accountName,
+  # log the url of the deployed application for github to pick up as an output
+  launch.browser = function(url) cat("::output name=url::", url)
 )

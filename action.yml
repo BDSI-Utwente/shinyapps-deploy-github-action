@@ -1,8 +1,8 @@
 name: "Deploy to shinyapps.io"
-description: "Deploy R shiny app to shinyapps.io"
+description: "Deploy R shiny app to shinyapps.io. For further details on the available options, see the documentation for the rsconnect package."
 inputs: 
   appDir:
-    description: path to app, defaults to `$GITHUB_WORKSPACE`
+    description: path to app, relative to repository root. Defaults to the repository root.
     required: false
   appFiles:
     description: comma separated list of files to publish, relative to appDir. If not provided, all files in appDir will be published.
