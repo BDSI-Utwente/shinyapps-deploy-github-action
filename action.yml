@@ -29,9 +29,6 @@ inputs:
   accountSecret:
     description: secret, see https://www.shinyapps.io/admin/#/tokens. Generating a new token/secret pair for this action is recommended, so that you can revoke it without affecting other deployments.
     required: true
-outputs:
-  url:
-    description: url to published application
 runs:
   using: docker
   image: Dockerfile
