@@ -64,5 +64,6 @@ rsconnect::deployApp(
   appFileManifest = appFileManifest,
   appName = appName,
   appTitle = appTitle,
-  account = accountName
+  account = accountName,
+  forceUpdate = TRUE
 )
