@@ -32,6 +32,9 @@ inputs:
   accountSecret:
     description: secret, see https://www.shinyapps.io/admin/#/tokens. Generating a new token/secret pair for this action is recommended, so that you can revoke it without affecting other deployments.
     required: true
+  forceUpdate:
+    description: If set, update any previously-deployed app without asking. If FALSE, ask to update
+    required: false
 runs:
   using: docker
   image: Dockerfile

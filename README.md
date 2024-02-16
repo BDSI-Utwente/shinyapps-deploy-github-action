@@ -84,6 +84,10 @@ _[optional]_  user-friendly title for the application
 
 _[optional]_  level of verbosity of rsconnect::deployApp(). Defaults to `normal`, other options are `quiet` or `verbose`.
 
+#### forceUpdate
+
+_[optional]_  If set to 'true', update any previously-deployed app without asking.
+
 ## Packages
 
 This action uses the rocker/shiny-verse:latest docker image as a base. This image includes recent versions of most package commonly used in shiny apps and the tidyverse.
